@@ -1,7 +1,16 @@
 Design Implementation of the HANGMAN Game
 
-The model contains a list of words when a new game is created. The words that I put in the list do not have repeated letters
-to keep the whole design simple.
+The model contains a list of words when a new game is created. I have manually inserted them and
+have avoided using the same letter twice in a word since i will then have to implement more complex code
+to handle that condition. The number of attempts provided to the user is double the length
+of the respective target words. To improve the design, date can be retrieved from a database
+and an algorithm can be implemented to have two letters in a word.
 
 A cron job to send emails to users who have registered but have no wins yet has been implemented.
 This is done to motivate the players to increase their rank and score with respective to their competitors.
+
+Unfortunately there is no user authentication for this system. The person playing needs to just enter his/her
+username into the system.
+
+For further development of this game, developers could try implementing two letters for a guess word and also
+User Authentication.
