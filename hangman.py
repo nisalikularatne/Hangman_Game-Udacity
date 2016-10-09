@@ -1,12 +1,7 @@
-import logging
 import endpoints
 from protorpc import messages
 from protorpc import message_types
 from protorpc import remote
-from google.appengine.ext import ndb
-from google.appengine.api import memcache
-from google.appengine.api import taskqueue
-import random
 from utils import get_by_urlsafe
 
 from models import Game, GameForm,\
@@ -86,13 +81,16 @@ class HangmanApi(remote.Service):
         if game.game_over:
             return game.to_form('Game already over!')
 
-        while correctString != correctTarget:
+        if correctString != correctTarget:
 
             if len(request.guess) != 1:
                 return game.to_form('One at a time please!')
 
             if request.guess.isdigit():
                 return game.to_form('Only Letters allowed!')
+
+            if request.guess != request.guess.isalpha():
+                return game.to_form('Only Alphabets allowed no special characters!')
 
             if request.guess.upper() in correctString:
                 return game.to_form("This was already an attempted guess")
@@ -253,11 +251,6 @@ class HangmanApi(remote.Service):
     def get_user_rankings(self, request):
         """Returns a list of the top players"""
         number_of_results = request.top
-        # users = User.query().order(-User.wins).fetch(number_of_results, offset=0)
-        # listed = []
-        # for user in users:
-        #     listed.append(user)
-        # return JSONMessage(message="{}".format(listed))
         return RankingForms(
             items=[user.to_rankform() for user in User.query().order(-User.wins).fetch(number_of_results, offset=0)])
 
