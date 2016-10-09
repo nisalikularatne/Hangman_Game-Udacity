@@ -1,0 +1,7 @@
+Design Implementation of the HANGMAN Game
+
+The model contains a list of words when a new game is created. The words that I put in the list do not have repeated letters
+to keep the whole design simple.
+
+A cron job to send emails to users who have registered but have no wins yet has been implemented.
+This is done to motivate the players to increase their rank and score with respective to their competitors.
