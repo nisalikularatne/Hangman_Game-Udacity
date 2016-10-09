@@ -34,6 +34,7 @@
  - utils.py: Helper function for retrieving ndb.Models by urlsafe Key string.
 
 ##Endpoints Included:
+
  - **create_user**
     - Path: 'user'
     - Method: POST
@@ -45,12 +46,10 @@
  - **new_game**
     - Path: 'game'
     - Method: POST
-    - Parameters: user_name, min, max, attempts
+    - Parameters: user_name
     - Returns: GameForm with initial game state.
     - Description: Creates a new Game. user_name provided must correspond to an
-    existing user - will raise a NotFoundException if not. Min must be less than
-    max. Also adds a task to a task queue to update the average moves remaining
-    for active games.
+    existing user - will raise a NotFoundException if not. 
      
  - **get_game**
     - Path: 'game/{urlsafe_game_key}'
@@ -89,6 +88,36 @@
     - Returns: StringMessage
     - Description: Gets the average number of attempts remaining for all games
     from a previously cached memcache key.
+    
+ - **cancel_game**
+    - Path: 'game/{urlsafe_game_key}/cancel'
+    - Method: POST
+    - Parameters: urlsafe_game_key
+    - Returns: StringMessage
+    - Description: Cancel an active game.
+    
+ - **get_game_history**
+ 
+    - Path: 'sgame/{urlsafe_game_key}/history'
+    - Method: GET
+    - Parameters: urlsafe_game_key
+    - Returns: StringMessage
+    - Description: Get a game's history (moves made so far)
+    
+ - **get_high_scores**
+    - Path: 'scores/highscores/{top}'
+    - Method: GET
+    - Parameters: number_of_results
+    - Returns: RankingForms
+    - Description: Get high scores (limited by number_of_results)
+ - **get_user_rankings**
+    - Path: 'users/ranks/{top}'
+    - Method: GET
+    - Parameters: top
+    - Returns: RankingForms
+    - Description: Get all user rankings, limited to top parameter of choosing.
+    
+    
 
 ##Models Included:
  - **User**
