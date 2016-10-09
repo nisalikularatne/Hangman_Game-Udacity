@@ -10,21 +10,22 @@
  
  
 ##Game Description:
-    This Guess a Word (Hangman) API randomly chooses a word from a list of words, and lets the user guess the word by inputting one         letter at a time. When the user makes a guess, they are notified if the letter is in the word or not. When the letter is in the word     the response will show the position of the letter with astericks (*) for the undiscovered letters. When the letter is not in the         word, the response shows the incorrectly guessed letters and how many attempts are remaining. A player may not guess the same letter     twice, repreated guesses are simply ignored and notify the user. Repeated guess don't hurt the player's score or diminish remaining     guess attempts.
+This Guess a Word (Hangman) API randomly chooses a word from a list of words, and lets the user guess the word by inputting one         letter at a time. When the user makes a guess, they are notified if the letter is in the word or not. When the letter is in the word     the response will show the position of the letter with astericks (*) for the undiscovered letters. When the letter is not in the         word, the response shows the incorrectly guessed letters and how many attempts are remaining. A player may not guess the same letter     twice, repreated guesses are simply ignored and notify the user. Repeated guess don't hurt the player's score or diminish remaining     guess attempts.
 
-    The number of attempts is based on the length of the word, multiplied by two. If the user does not guess the word in the alloted         number of tries, they will lose the game and no score is recorded.
+The number of attempts is based on the length of the word, multiplied by two. If the user does not guess the word in the alloted         number of tries, they will lose the game and no score is recorded.
 
-    The Score is calculated as such:
+The Score is calculated as such:
 
-    When a user guesses a letter correctly, they will recieve an amount of points based on the number of attempts allowed and  
-    incorrectly guessed letters (Total Attempts Allowed - Number of incorrect guesses). This is done so that longer (harder) words award     higher number of points, but with each wrong guess the player won't earn as many points.
+When a user guesses a letter correctly, they will recieve an amount of points based on the number of attempts allowed and  
+incorrectly guessed letters (Total Attempts Allowed - Number of incorrect guesses). This is done so that longer (harder) words award     higher number of points, but with each wrong guess the player won't earn as many points.
 
-    The same amount of points is deducted if the player guesses incorrectly, except if the score will result in a negative number. In       that case, the score will be zero.
+The same amount of points is deducted if the player guesses incorrectly, except if the score will result in a negative number. In       that case, the score will be zero.
 
-    In the event of the last guess (winning guess), the player is awarded points based on the number of attempts remaining. The logic  
-    here is that the less incorrect guesses and attempts it takes a player to guess the word, the more points they will earn.
+In the event of the last guess (winning guess), the player is awarded points based on the number of attempts remaining. The logic  
+here is that the less incorrect guesses and attempts it takes a player to guess the word, the more points they will earn.
 
-    An user can either win, lose or cancel a game, so players will be ranked based on the number of wins they accumulate.
+An user can either win, lose or cancel a game, so players will be ranked based on the number of wins they accumulate.
+
 ##Files Included:
  - hangman.py: Contains endpoints and game playing logic.
  - app.yaml: App configuration.
