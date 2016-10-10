@@ -92,7 +92,7 @@ An user can either win, lose or cancel a game, so players will be ranked based o
     
  - **cancel_game**
     - Path: 'game/{urlsafe_game_key}/cancel'
-    - Method: POST
+    - Method: PUT
     - Parameters: urlsafe_game_key
     - Returns: StringMessage
     - Description: Cancel an active game.
